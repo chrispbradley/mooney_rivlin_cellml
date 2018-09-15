@@ -106,7 +106,6 @@ PROGRAM MOONEYRIVLININCELLMLEXAMPLE
 
   TYPE(cmfe_BasisType) :: QuadraticBasis, LinearBasis, Basis(2)
   TYPE(cmfe_BoundaryConditionsType) :: BoundaryConditions
-  TYPE(cmfe_ComputationEnvironmentType) :: computationEnvironment
   TYPE(cmfe_CoordinateSystemType) :: CoordinateSystem, WorldCoordinateSystem
   TYPE(cmfe_GeneratedMeshType) :: GeneratedMesh
   TYPE(cmfe_MeshType) :: Mesh
@@ -185,9 +184,8 @@ PROGRAM MOONEYRIVLININCELLMLEXAMPLE
 !  CALL cmfe_DiagnosticsSetOn(CMFE_FROM_DIAG_TYPE,[1,2,3,4,5],"Diagnostics",["PROBLEM_FINITE_ELEMENT_CALCULATE"],Err)
 
   !Get the number of computational nodes and this computational node number
-  CALL cmfe_ComputationEnvironment_Initialise(computationEnvironment,err)
-  CALL cmfe_ComputationEnvironment_NumberOfWorldNodesGet(computationEnvironment,numberOfComputationalNodes,err)
-  CALL cmfe_ComputationEnvironment_WorldNodeNumberGet(computationEnvironment,computationalNodeNumber,err)
+  CALL cmfe_ComputationalNumberOfNodesGet(numberOfComputationalNodes,err)
+  CALL cmfe_ComputationalNodeNumberGet(computationalNodeNumber,err)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
