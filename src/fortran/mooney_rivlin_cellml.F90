@@ -41,6 +41,7 @@ PROGRAM MooneyRivlinInCellMLExample
   INTEGER(CMISSIntg), PARAMETER :: GeneratedMeshUserNumber=1
   INTEGER(CMISSIntg), PARAMETER :: MeshUserNumber=1
   INTEGER(CMISSIntg), PARAMETER :: DecompositionUserNumber=1
+  INTEGER(CMISSIntg), PARAMETER :: DecomposerUserNumber=1
 
   INTEGER(CMISSIntg), PARAMETER :: NumberOfMeshDimensions=3
   INTEGER(CMISSIntg), PARAMETER :: NumberOfXiCoordinates=3
@@ -196,8 +197,8 @@ PROGRAM MooneyRivlinInCellMLExample
   
   CALL cmfe_WorkGroup_Initialise(worldWorkGroup,err)
   CALL cmfe_ComputationEnvironment_WorldWorkGroupGet(computationEnvironment,worldWorkGroup,err)
-  CALL cmfe_WorkGroup_NumberOfGroupNodesGet(worldWorkGroup,numberOfComputationNodes,err)
-  CALL cmfe_WorkGroup_GroupNodeNumberGet(worldWorkGroup,computationNodeNumber,err)
+  CALL cmfe_WorkGroup_NumberOfGroupNodesGet(worldWorkGroup,numberOfComputationalNodes,err)
+  CALL cmfe_WorkGroup_GroupNodeNumberGet(worldWorkGroup,computationalNodeNumber,err)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
