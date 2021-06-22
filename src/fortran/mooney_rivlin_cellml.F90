@@ -569,7 +569,7 @@ PROGRAM MooneyRivlinInCellMLExample
   CALL cmfe_Problem_ControlLoopCreateStart(Problem,Err)
   CALL cmfe_ControlLoop_Initialise(ControlLoop,Err)
   CALL cmfe_Problem_ControlLoopGet(Problem,CMFE_CONTROL_LOOP_NODE,ControlLoop,Err)
-  CALL cmfe_ControlLoop_TypeSet(ControlLoop,CMFE_PROBLEM_CONTROL_SIMPLE_TYPE,Err)
+  CALL cmfe_ControlLoop_TypeSet(ControlLoop,CMFE_CONTROL_SIMPLE_TYPE,Err)
   CALL cmfe_Problem_ControlLoopCreateFinish(Problem,Err)
   
   !Create the problem solvers
