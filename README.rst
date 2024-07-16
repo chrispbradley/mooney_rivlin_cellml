@@ -10,9 +10,10 @@ Building the example
 Instructions on how to configure and build with CMake::
 
   git clone https://github.com/OpenCMISS-Examples/mooney_rivlin_cellml.git
-  mkdir mooney_rivlin_cellml-build
-  cd mooney_rivlin_cellml-build
-  cmake -DOpenCMISSLibs_DIR=/path/to/opencmisslib/install ../mooney_rivlin_cellml
+  cd mooney_rivlin_cellml
+  mkdir build
+  cd build
+  cmake -DOpenCMISS_INSTALL_ROOT=/path/to/opencmiss/install ../.
   make  # cmake --build . will also work here and is much more platform agnostic.
 
 Running the example
