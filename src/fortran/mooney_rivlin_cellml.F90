@@ -388,7 +388,8 @@ PROGRAM MooneyRivlinInCellMLExample
   CALL OC_CellML_Initialise(cellML,err)
   CALL OC_CellML_CreateStart(CELLML_USER_NUMBER,region,cellML,err)
   !Import a Mooney-Rivlin material law from a file
-  CALL OC_CellML_ModelImport(cellML,"inputs/mooney_rivlin.xml",mooneyRivlinModelIndex,err)
+  !CALL OC_CellML_ModelImport(cellML,"inputs/mooney_rivlin.xml",mooneyRivlinModelIndex,err)
+  CALL OC_CellML_ModelImport(cellML,"inputs/mooney_rivlin_new.cellml",mooneyRivlinModelIndex,err)
   !Now we have imported the model we are able to specify which variables from the model we want:
   !   - to set from this side
   CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/E11",err)
