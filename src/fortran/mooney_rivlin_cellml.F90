@@ -392,21 +392,21 @@ PROGRAM MooneyRivlinInCellMLExample
   CALL OC_CellML_ModelImport(cellML,"inputs/mooney_rivlin_new.cellml",mooneyRivlinModelIndex,err)
   !Now we have imported the model we are able to specify which variables from the model we want:
   !   - to set from this side
-  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/E11",err)
-  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/E12",err)
-  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/E13",err)
-  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/E22",err)
-  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/E23",err)
-  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/E33",err)
-  !CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/c1",err)
-  !CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"equations/c2",err)
+  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/E11",err)
+  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/E12",err)
+  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/E13",err)
+  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/E22",err)
+  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/E23",err)
+  CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/E33",err)
+  !CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/c1",err)
+  !CALL OC_CellML_VariableSetAsKnown(cellML,mooneyRivlinModelIndex,"main/c2",err)
   !   - to get from the CellML side
-  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"equations/Tdev11",err)
-  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"equations/Tdev12",err)
-  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"equations/Tdev13",err)
-  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"equations/Tdev22",err)
-  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"equations/Tdev23",err)
-  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"equations/Tdev33",err)
+  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"main/Tdev11",err)
+  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"main/Tdev12",err)
+  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"main/Tdev13",err)
+  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"main/Tdev22",err)
+  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"main/Tdev23",err)
+  CALL OC_CellML_VariableSetAsWanted(cellML,mooneyRivlinModelIndex,"main/Tdev33",err)
   !Finish the CellML environment
   CALL OC_CellML_CreateFinish(cellML,err)
 
@@ -415,34 +415,34 @@ PROGRAM MooneyRivlinInCellMLExample
   !Now we can set up the field variable component <--> CellML model variable mappings.
   !Map the strain components
   CALL OC_CellML_CreateFieldToCellMLMap(cellML,dependentField,OC_FIELD_U1_VARIABLE_TYPE,1,OC_FIELD_VALUES_SET_TYPE, &
-    & mooneyRivlinModelIndex,"equations/E11",OC_FIELD_VALUES_SET_TYPE,err)
+    & mooneyRivlinModelIndex,"main/E11",OC_FIELD_VALUES_SET_TYPE,err)
   CALL OC_CellML_CreateFieldToCellMLMap(cellML,dependentField,OC_FIELD_U1_VARIABLE_TYPE,2,OC_FIELD_VALUES_SET_TYPE, &
-    & mooneyRivlinModelIndex,"equations/E12",OC_FIELD_VALUES_SET_TYPE,err)
+    & mooneyRivlinModelIndex,"main/E12",OC_FIELD_VALUES_SET_TYPE,err)
   CALL OC_CellML_CreateFieldToCellMLMap(cellML,dependentField,OC_FIELD_U1_VARIABLE_TYPE,3,OC_FIELD_VALUES_SET_TYPE, &
-    & mooneyRivlinModelIndex,"equations/E13",OC_FIELD_VALUES_SET_TYPE,err)
+    & mooneyRivlinModelIndex,"main/E13",OC_FIELD_VALUES_SET_TYPE,err)
   CALL OC_CellML_CreateFieldToCellMLMap(cellML,dependentField,OC_FIELD_U1_VARIABLE_TYPE,4,OC_FIELD_VALUES_SET_TYPE, &
-    & mooneyRivlinModelIndex,"equations/E22",OC_FIELD_VALUES_SET_TYPE,err)
+    & mooneyRivlinModelIndex,"main/E22",OC_FIELD_VALUES_SET_TYPE,err)
   CALL OC_CellML_CreateFieldToCellMLMap(cellML,dependentField,OC_FIELD_U1_VARIABLE_TYPE,5,OC_FIELD_VALUES_SET_TYPE, &
-    & mooneyRivlinModelIndex,"equations/E23",OC_FIELD_VALUES_SET_TYPE,err)
+    & mooneyRivlinModelIndex,"main/E23",OC_FIELD_VALUES_SET_TYPE,err)
   CALL OC_CellML_CreateFieldToCellMLMap(cellML,dependentField,OC_FIELD_U1_VARIABLE_TYPE,6,OC_FIELD_VALUES_SET_TYPE, &
-    & mooneyRivlinModelIndex,"equations/E33",OC_FIELD_VALUES_SET_TYPE,err)
+    & mooneyRivlinModelIndex,"main/E33",OC_FIELD_VALUES_SET_TYPE,err)
   !Map the material parameters
   !CALL OC_CellML_CreateFieldToCellMLMap(cellML,materialsField,OC_FIELD_U_VARIABLE_TYPE,1,OC_FIELD_VALUES_SET_TYPE, &
-  !  & mooneyRivlinModelIndex,"equations/c1",OC_FIELD_VALUES_SET_TYPE,err)
+  !  & mooneyRivlinModelIndex,"main/c1",OC_FIELD_VALUES_SET_TYPE,err)
   !CALL OC_CellML_CreateFieldToCellMLMap(cellML,materialsField,OC_FIELD_U_VARIABLE_TYPE,2,OC_FIELD_VALUES_SET_TYPE, &
-  !  & mooneyRivlinModelIndex,"equations/c2",OC_FIELD_VALUES_SET_TYPE,err)
+  !  & mooneyRivlinModelIndex,"main/c2",OC_FIELD_VALUES_SET_TYPE,err)
   !Map the stress components
-  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"equations/Tdev11",OC_FIELD_VALUES_SET_TYPE, &
+  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"main/Tdev11",OC_FIELD_VALUES_SET_TYPE, &
     & dependentField,OC_FIELD_U2_VARIABLE_TYPE,1,OC_FIELD_VALUES_SET_TYPE,err)
-  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"equations/Tdev12",OC_FIELD_VALUES_SET_TYPE, &
+  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"main/Tdev12",OC_FIELD_VALUES_SET_TYPE, &
     & dependentField,OC_FIELD_U2_VARIABLE_TYPE,2,OC_FIELD_VALUES_SET_TYPE,err)
-  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"equations/Tdev13",OC_FIELD_VALUES_SET_TYPE, &
+  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"main/Tdev13",OC_FIELD_VALUES_SET_TYPE, &
     & dependentField,OC_FIELD_U2_VARIABLE_TYPE,3,OC_FIELD_VALUES_SET_TYPE,err)
-  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"equations/Tdev22",OC_FIELD_VALUES_SET_TYPE, &
+  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"main/Tdev22",OC_FIELD_VALUES_SET_TYPE, &
     & dependentField,OC_FIELD_U2_VARIABLE_TYPE,4,OC_FIELD_VALUES_SET_TYPE,err)
-  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"equations/Tdev23",OC_FIELD_VALUES_SET_TYPE, &
+  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"main/Tdev23",OC_FIELD_VALUES_SET_TYPE, &
     & dependentField,OC_FIELD_U2_VARIABLE_TYPE,5,OC_FIELD_VALUES_SET_TYPE,err)
-  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"equations/Tdev33",OC_FIELD_VALUES_SET_TYPE, &
+  CALL OC_CellML_CreateCellMLToFieldMap(cellML,mooneyRivlinModelIndex,"main/Tdev33",OC_FIELD_VALUES_SET_TYPE, &
     & dependentField,OC_FIELD_U2_VARIABLE_TYPE,6,OC_FIELD_VALUES_SET_TYPE,err)
   !Finish the creation of CellML <--> OpenCMISS field maps
   CALL OC_CellML_FieldMapsCreateFinish(cellML,err)
