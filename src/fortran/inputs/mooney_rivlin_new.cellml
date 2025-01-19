@@ -10,7 +10,7 @@
             <unit exponent="-2" units="metre"/>
         </units>
         <!-- Variables-->
-        <variable name="time" units="second"/>
+        <!--var time: second;-->
         <variable initial_value="0" name="E11" units="strain"/>
         <variable initial_value="0" name="E22" units="strain"/>
         <variable initial_value="0" name="E33" units="strain"/>
@@ -25,7 +25,7 @@
         <variable name="Tdev13" units="stress"/>
         <variable name="Tdev23" units="stress"/>
         <variable name="Tdev12" units="stress"/>
-        <variable initial_value="0" name="dummy" units="stress"/>
+        <!--var dummy: stress {init: 0};-->
         <!-- Equations-->
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -148,29 +148,7 @@
                     <ci>c2</ci>
                 </apply>
             </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>time</ci>
-                    </bvar>
-                    <ci>dummy</ci>
-                </apply>
-                <apply>
-                    <divide/>
-                    <apply>
-                        <plus/>
-                        <ci>Tdev11</ci>
-                        <ci>Tdev22</ci>
-                        <ci>Tdev33</ci>
-                        <ci>Tdev13</ci>
-                        <ci>Tdev23</ci>
-                        <ci>Tdev12</ci>
-                    </apply>
-                    <ci>time</ci>
-                </apply>
-            </apply>
         </math>
+        <!--ode(dummy, time) = (Tdev11+Tdev22+Tdev33+Tdev13+Tdev23+Tdev12)/time;-->
     </component>
 </model>

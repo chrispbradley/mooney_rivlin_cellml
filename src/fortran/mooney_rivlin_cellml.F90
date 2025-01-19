@@ -567,7 +567,7 @@ PROGRAM MooneyRivlinInCellMLExample
   !Set x=0 nodes to no x displacment in x
   DO nodeIdx=1,SIZE(leftSurfaceNodes,1)
     nodeNumber=leftSurfaceNodes(nodeIdx)
-    CALL OC_Decomposition_NodeDomainGet(decomposition,nodeNumber,1,nodeDomain,err)
+    CALL OC_Decomposition_NodeDomainGet(decomposition,1,nodeNumber,nodeDomain,err)
     IF(nodeDomain==computationalNodeNumber) THEN
       CALL OC_BoundaryConditions_SetNode(boundaryConditions,dependentField,OC_FIELD_U_VARIABLE_TYPE,1,1,nodeNumber,1, &
         & OC_BOUNDARY_CONDITION_FIXED,0.0_OC_RP,err)
@@ -576,7 +576,7 @@ PROGRAM MooneyRivlinInCellMLExample
   !Set x=WIDTH nodes to 10% x displacement
   DO nodeIdx=1,SIZE(rightSurfaceNodes,1)
     nodeNumber=rightSurfaceNodes(nodeIdx)
-    CALL OC_Decomposition_NodeDomainGet(decomposition,nodeNumber,1,nodeDomain,err)
+    CALL OC_Decomposition_NodeDomainGet(decomposition,1,nodeNumber,nodeDomain,err)
     IF(nodeDomain==computationalNodeNumber) THEN
       CALL OC_BoundaryConditions_SetNode(boundaryConditions,dependentField,OC_FIELD_U_VARIABLE_TYPE,1,1,nodeNumber,1, &
         & OC_BOUNDARY_CONDITION_FIXED,1.1_OC_RP*WIDTH,err)
@@ -586,7 +586,7 @@ PROGRAM MooneyRivlinInCellMLExample
   !Set y=0 nodes to no y displacement
   DO nodeIdx=1,SIZE(frontSurfaceNodes,1)
     nodeNumber=frontSurfaceNodes(nodeIdx)
-    CALL OC_Decomposition_NodeDomainGet(decomposition,nodeNumber,1,nodeDomain,err)
+    CALL OC_Decomposition_NodeDomainGet(decomposition,1,nodeNumber,nodeDomain,err)
     IF(nodeDomain==computationalNodeNumber) THEN
       CALL OC_BoundaryConditions_SetNode(boundaryConditions,dependentField,OC_FIELD_U_VARIABLE_TYPE,1,1,nodeNumber,2, &
         & OC_BOUNDARY_CONDITION_FIXED,0.0_OC_RP,err)
@@ -596,7 +596,7 @@ PROGRAM MooneyRivlinInCellMLExample
   !Set z=0 nodes to no z displacement
   DO nodeIdx=1,SIZE(bottomSurfaceNodes,1)
     nodeNumber=bottomSurfaceNodes(nodeIdx)
-    CALL OC_Decomposition_NodeDomainGet(decomposition,nodeNumber,1,nodeDomain,err)
+    CALL OC_Decomposition_NodeDomainGet(decomposition,1,nodeNumber,nodeDomain,err)
     IF(nodeDomain==computationalNodeNumber) THEN
       CALL OC_BoundaryConditions_SetNode(boundaryConditions,dependentField,OC_FIELD_U_VARIABLE_TYPE,1,1,nodeNumber,3, &
         & OC_BOUNDARY_CONDITION_FIXED,0.0_OC_RP,err)
